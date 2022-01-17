@@ -1,0 +1,141 @@
+ 
+.fastRow{
+    top:0;
+    bottom: 0;
+    position: relative;
+    background: linear-gradient(106.54deg, #140078 -4.67%, #6C31BC 112.32%);
+    height: 300px;
+     
+}
+.logo{
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    /* width: 200px;
+    /* height: 100px; */
+}
+.userImage{
+    position: absolute;
+    top: 20px;
+    right: -150px;
+    /* width: 200px;
+    height: 100px; */
+}
+.text{
+    position: absolute;
+    color: white;
+    top: 200px;
+    font-family:  Helvetica, Arial, sans-serif;
+    font-size: 1.5rem;
+    font-weight: bold;
+     line-height: 1.167;
+    letter-spacing: -0.01562em;
+    /* width: 200px;
+    height: 100px; */
+}
+
+.CheckoutStepsMainPage{
+  margin: -200px 0px 50px 0px;
+  right: 40px;
+    top: 250px;
+
+}
+
+
+
+.checkout-progress div {
+    box-sizing: border-box;
+  }
+  
+  .checkout-progress {
+    display: block;
+    clear: both;
+    margin: 20px auto;
+    width: auto;
+    font-family: sans-serif;
+    overflow: auto;
+  }
+  
+  .step {
+    margin: 0;
+    border: 0;
+    letter-spacing: 1px;
+    line-height: 30px;
+    padding: 5px 10px 5px 15px;
+    color: grey;
+    text-decoration: none;
+    cursor: default;
+    font-weight: bold;
+    float: left;
+    height: auto;
+  }
+  
+  .incomplete {
+    background: #eeeeee;
+  }
+  
+  .active-step {
+    background-color: #fa9c23;
+    color: #fff;
+  }
+  
+  .triangle-active {
+    float: left;
+    width: 0;
+    border-top: 20px solid transparent;
+    border-left: 15px solid #fa9c23;
+    border-bottom: 20px solid transparent;
+    margin-left: -1px;
+  }
+  
+  .triangle2-active {
+    width: 0;
+    float: left;
+    border-top: 20px solid #fa9c23;
+    border-left: 15px solid #fff;
+    border-bottom: 20px solid #fa9c23;
+    margin-right: -1px;
+  }
+  
+  .triangle-incomplete {
+    float: left;
+    width: 0;
+    border-top: 20px solid transparent;
+    border-left: 15px solid #eeeeee;
+    border-bottom: 20px solid transparent;
+    margin-left: -1px;
+  }
+  
+  .triangle2-incomplete {
+    width: 0;
+    float: left;
+    border-top: 20px solid #eeeeee;
+    border-left: 15px solid #fff;
+    border-bottom: 20px solid #eeeeee;
+    margin-right: -1px;
+  }
+
+
+  .lastSection{
+      height: 500px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+
+
+  }
+  .h2-style{
+
+    font-size: 24px;
+    font-style: normal;
+    text-align: left;
+    font-family: Roboto;
+    font-weight: 400;
+    line-height: 36px;
+    margin-bottom: 6px;
+    letter-spacing: 0px;
+  }
+  
+  .text-left{
+    text-align: left;
+  }

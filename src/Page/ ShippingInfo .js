@@ -10,21 +10,26 @@ function  ShippingInfo() {
         <div className='mainsection'>
            <MetaData title={'Shipping Info'} />
         <div className='row fastRow'>
-            <div className='col-md-4 logo'>
+        <div className='d-flex container logoContainer'
+             style={{justifyContent: 'space-between'}}
+             >
+             <div className='text-left logo'>
               <img src={user} dataReactid=".0.0"  />
              </div>
-             <div className=' text'>
+             <div className=' text-right userImage'>
+               <img src={img} dataReactid=".0.0"/>
+             </div>
+             </div>
+             <div className='   text'>
                <h2>Submit Cards For Grading</h2>
              </div>
-             <div className='col-md-4 userImage'>
-               <img src={img} dataReactid=".0.0"/>
+             
+             <div className='CheckoutStepsMainPage'>
+                 <CheckoutSteps service cards shipping className=" "></CheckoutSteps>
              </div>
         </div>
         <div className=' container lastSection '>
           <div className='row text-left d-flex'>
-            <div className='CheckoutStepsMainPage'>
-               <CheckoutSteps cards service shipping className=""></CheckoutSteps>
-            </div>
             <div>
             <h2 className='h2-style '>
                 Enter Payment Details [ShippingInfo]

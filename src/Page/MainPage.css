@@ -1,25 +1,24 @@
- 
 .fastRow{
     top:0;
     bottom: 0;
     position: relative;
     background: linear-gradient(106.54deg, #140078 -4.67%, #6C31BC 112.32%);
     height: 300px;
+    border-bottom: 2px solid #20BFB8;
      
 }
-.logo{
-    position: absolute;
-    top: 10px;
-    left: 20px;
-    /* width: 200px;
-    /* height: 100px; */
+ 
+.logoContainer {
+  padding: 25px 70px;
 }
-.userImage{
-    position: absolute;
-    top: 20px;
-    right: -150px;
-    /* width: 200px;
-    height: 100px; */
+.logo{
+    top: 25px;
+    left: -60px;
+}
+.logo img{
+  width: 90%;
+}
+.userImage  {
 }
 .text{
     position: absolute;
@@ -30,19 +29,13 @@
     font-weight: bold;
      line-height: 1.167;
     letter-spacing: -0.01562em;
-    /* width: 200px;
-    height: 100px; */
 }
 
 .CheckoutStepsMainPage{
-  margin: -200px 0px 50px 0px;
-  right: 40px;
-    top: 250px;
+  position: absolute;
+   top: 225px;
 
 }
-
-
-
 .checkout-progress div {
     box-sizing: border-box;
   }
@@ -70,54 +63,46 @@
     height: auto;
   }
   
-  .incomplete {
-    background: #eeeeee;
+  .triangle2-active {
+    background-color: rgb(32, 191, 184);
+    border-radius: 50px;
   }
-  
+
+  .triangle2-active ::before {
+    background-color: rgb(32, 191, 184);
+    color: white;
+  }
   .active-step {
-    background-color: #fa9c23;
-    color: #fff;
+ 
+    color:rgba(0, 0, 0, 0.87);
+
   }
   
   .triangle-active {
-    float: left;
-    width: 0;
-    border-top: 20px solid transparent;
-    border-left: 15px solid #fa9c23;
-    border-bottom: 20px solid transparent;
-    margin-left: -1px;
   }
   
   .triangle2-active {
-    width: 0;
-    float: left;
-    border-top: 20px solid #fa9c23;
-    border-left: 15px solid #fff;
-    border-bottom: 20px solid #fa9c23;
-    margin-right: -1px;
+    color:rgb(32, 191, 184);
+    font-size: x-large;
+    width: 55%;
+    border: 2px solid rgb(32, 191, 184);
+    padding: 5px;
+  }
+.triangle2-active-Cards{
+  width: 70%;
+}
+
+  .triangle2-incomplete{
+    font-size: x-large;
+    color: rgb(32, 191, 184);
+    background-color: white;
+    width: 65%;
+    border: 2px solid rgb(32, 191, 184);
+    padding: 5px;
+    border-radius: 50px;
   }
   
-  .triangle-incomplete {
-    float: left;
-    width: 0;
-    border-top: 20px solid transparent;
-    border-left: 15px solid #eeeeee;
-    border-bottom: 20px solid transparent;
-    margin-left: -1px;
-  }
-  
-  .triangle2-incomplete {
-    width: 0;
-    float: left;
-    border-top: 20px solid #eeeeee;
-    border-left: 15px solid #fff;
-    border-bottom: 20px solid #eeeeee;
-    margin-right: -1px;
-  }
-
-
   .lastSection{
-      height: 500px;
       display: flex;
       align-items: center;
       justify-content: flex-start;
@@ -135,7 +120,79 @@
     margin-bottom: 6px;
     letter-spacing: 0px;
   }
-  
+  text h2{
+    font-size: 24px;
+    font-weight: bold;
+    font-family: Roboto, Helvetica, Arial, sans-serif;
+  }
   .text-left{
     text-align: left;
+  }
+  .text-right{
+    text-align: right;
+  }
+  .MuiPaper-root{
+    height: 200px;
+  }
+
+  .gridItem{
+    justify-items: center;
+
+  }
+  .WidthShPy{
+    width: 50%;
+  }
+.widthReview{
+  width: 60%;
+}
+.disabledBtn{
+  box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+}
+
+.imgCrt{
+     width: 50% !important;
+ }
+  @media screen and (max-width: 600px) {
+    .logoContainer {
+
+      padding: 25px 25px;
+    }
+    .logoContainer img {
+       width: 80%;
+    }
+    .triangle2-active {
+      font-size: large;
+      width: 45%;
+    }
+
+ 
+.triangle2-active {
+  font-size: large;
+  width: 55%;
+}
+ .triangle2-active-Cards {
+    width: 65%;
+    
+
+}
+.triangle2-incomplete {
+  font-size: 20px;
+}
+.WidthShPy {
+  font-size: large;
+  width: 47%;
+}
+.widthReview {
+  font-size: large;
+  width: 52%;
+}
+.step.active-step {
+  font-size: 12px;
+}
+.step.incomplete {
+  font-size: 13px;
+}
+.gridItem {
+  margin: 0px 0px 0px -10px;
+}
   }

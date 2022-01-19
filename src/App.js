@@ -7,7 +7,7 @@ import {
   Link
 } from "react-router-dom";
  import Payment from './Page/ Payment';
-import cart from './Page/Cart';
+import Cart from './Page/Cart';
 import ShippingInfo from './Page/ ShippingInfo ';
 import Review from './Page/Review';
 import Service from './Page/Service';
@@ -19,7 +19,7 @@ function App() {
         <Switch>
         <Route exact path="/" component={Service} />
         <Route exact path="/Service" component={Service} />
-         <Route exact path="/cards" component={cart} />
+         <Route exact path="/cards" component={Cart} />
          <Route exact path="/payment" component={Payment} />
         <Route exact path="/shipping" component={ShippingInfo} />
         <Route exact path="/review" component={Review} />

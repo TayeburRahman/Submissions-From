@@ -5,28 +5,40 @@ import'./MainPage.css'
 import CheckoutSteps from './ CheckoutSteps'
 import { Link } from 'react-router-dom'
 import MetaData from '../MetaData'
-
+import ServiceDeta from '../Components/ServiceDeta'
+ 
 function  Service() {
     return (
-        <div className='mainsection'>
+        <div className='mainsection '>
           <MetaData title={'User Service'} />
-        <div className='row fastRow'>
-            <div className='col-md-4 logo'>
+        <div className='row fastRow '>
+             <div className='d-flex container logoContainer'
+             style={{justifyContent: 'space-between'}}
+             >
+             <div className='text-left logo'>
               <img src={user} dataReactid=".0.0"  />
              </div>
-             <div className=' text'>
-               <h2>Submit Cards For Grading</h2>
-             </div>
-             <div className='col-md-4 userImage'>
+             <div className=' text-right userImage'>
                <img src={img} dataReactid=".0.0"/>
              </div>
-            
-        </div>
-        <div className=' container lastSection '>
-          <div className='row text-left d-flex'>
+             </div>
+             <div className='   text'>
+               <h2>Submit Cards For Grading</h2>
+             </div>
+             
              <div className='CheckoutStepsMainPage'>
                  <CheckoutSteps  service  className=" "></CheckoutSteps>
              </div>
+        </div>
+        <div className=' container lastSection '
+         style={{justifyContent: 'space-around'}}
+        >
+          
+          <div className='row col-md-7 text-left d-flex'
+          style={{
+            margin: '100px 0px 25px 0px'
+        }}
+          >
             <div>
             <h2 className='h2-style '>
                 Enter Payment Details
@@ -35,15 +47,27 @@ function  Service() {
                 Select your payment method and enter details.
                 </p>
             </div>
-            <Link to="/cards">
-               <button id="checkout_btn" className="btn btn-primary btn-block"
-               style={{    padding: '10px 50px 10px 50px'}}
+          </div>
+        </div>
+        <div className='d-flex container ThardSection '
+          style={{justifyContent: 'space-around'}}
+        >
+          <ServiceDeta></ServiceDeta>
+        </div>
+        
+        <div className='d-flex mt-5 mb-5'
+          style={{justifyContent: 'space-around'}}
+        >
+           <Link to="/cards">
+               <button  variant="contained"  
+               style={{ padding: '10px 100px 10px 100px', background:"rgba(32, 191, 184)",color: 'white', border: '0'}}
                >
                 Next
                </button>
             </Link>
-          </div>
         </div>
+       
+        
          
     </div>
         

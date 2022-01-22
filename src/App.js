@@ -1,6 +1,6 @@
  import './App.css';
  import React from "react";
-import {
+ import {
   BrowserRouter as Router,
   Switch,
   Route,
@@ -11,6 +11,7 @@ import Cart from './Page/Cart';
 import ShippingInfo from './Page/ ShippingInfo ';
 import Review from './Page/Review';
 import Service from './Page/Service';
+
 
 function App() {
   return (

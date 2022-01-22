@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { ImageListItem, ListItem, ListItemIcon, ListItemText, Typography } from '@mui/material';
+import { ImageListItem, ListItem, Typography } from '@mui/material';
  
 
 function  CartDeta({displyProduct}) {

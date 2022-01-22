@@ -4,17 +4,21 @@ import CheckoutSteps from './ CheckoutSteps'
 import img from "../Image/download.svg"
 import user from "../Image/download (1).svg"
 import MetaData from '../MetaData'
-import { Button, div, Paper, Typography } from '@mui/material'
+import { Button, Paper, Typography } from '@mui/material'
 import SearchIcon from '@mui/icons-material/Search';
 import CartDeta from '../Components/CartDeta';
+import { addToDb } from '../Components/fakedb';
+import useCart from '../Components/Hooks/useCart';
+import AddedCardLast from '../Components/AddedCard';
 
 
 function  Cart() {
   const [products, setProducts] = useState([]);
    const [value, setValue] = useState('');
   const [displyProduct,setDisplyProduct] = useState([])
-  console.log(displyProduct)
+  const [cart, setCart] = useCart();
 
+  console.log(displyProduct)
 
   useEffect(() => {
     fetch("./products.JSON")
@@ -24,7 +28,40 @@ function  Cart() {
         // input search tex hendl UI. No.7 and END
         setDisplyProduct(data);
       });
+
+
+      const handleAddToCart = (product) => {
+        const exists = cart.find((pd) => pd.key === product.key);
+        let newCart = [];
+        if (exists) {
+          const rest = cart.filter((pd) => pd.key !== product.key);
+          exists.quantity = exists.quantity + 1;
+          newCart = [...rest, product];
+        } else {
+          product.quantity = 1;
+          newCart = [...cart, product];
+        }
+        setCart(newCart);
+        addToDb(product.key);
+      };
+
+
+      let totalQuantity = 0;
+      let total = 0;
+      for (const product of cart) {
+          if (!product.quantity) {
+              product.quantity = 1;
+          }
+          total = total + product.price * product.quantity;
+          totalQuantity = totalQuantity + product.quantity;
+      }
+  
+      const shipping = total > 0 ? 15 : 0;
+      const tax = (total + shipping) * 0.10;
+      const grandTotal = total + shipping + tax;
   }, []);
+
+
   const hendlSearch = (event) => {
     const searchText = event.target.value;
     setValue(searchText)
@@ -54,11 +91,11 @@ function  Cart() {
                  <CheckoutSteps  service cards className=" "></CheckoutSteps>
              </div>
           </div>
-        <div className='d-grid container lastSection'>
+        <div className='d-grid p-5 m-3  lastSection'>
            <div className='row d-flex mt-5 mb-4'
            style={{justifyContent: 'space-around'}}
            >
-             <div className='text-left mb-4 col-md-12 col-sm-12'
+             <div className='text-left mb-4 ps-3 col-md-12 col-sm-12'
              style={{margin: '50px 10px 0px 0px'}}
              >
               <h2 className='h2-style '>
@@ -90,6 +127,7 @@ function  Cart() {
                
                  <CartDeta key={displyProduct.key}
                  displyProduct={displyProduct}
+                //  handleAddToCart={handleAddToCart}
                  ></CartDeta>
              
                :
@@ -112,19 +150,22 @@ function  Cart() {
                   </div>
                    
                }
-               </dib>
-               <div className='col-md-4 col-sm-12'>
+               <div>
+                 <AddedCardLast></AddedCardLast>
+               </div>
+             </dib>
+              <div className='col-md-4 col-sm-12 mt-4'>
                <div className='col-md-12 col-sm-12 text-left'
-            style={{boxShadow: '0px 0px 0px 0.2px', padding: '10px'}}
-            >
-             <Typography variant="h6" gutterBottom component="div">
-               Summary
-            </Typography>
+                style={{boxShadow: '0px 0px 0px 0.2px', padding: '10px'}}
+                >
+                  <Typography variant="h6" gutterBottom component="div">
+                   Summary
+                   </Typography>
                </div>
                <div className='col-md-12 col-sm-12'
-              style={{boxShadow: '0px 0px 0px 0.2px', padding: '10px'}}
-            >
-              <div className='d-flex mb-2 mt-2' 
+                  style={{boxShadow: '0px 0px 0px 0.2px', padding: '10px'}}
+               >
+               <div className='d-flex mb-2 mt-2' 
               style={{ justifyContent: 'space-between', alignItems: 'center'}}
                >
                 <Typography className='text-left' variant="body2" gutterBottom component="div">
@@ -188,6 +229,7 @@ function  Cart() {
             </div>
            </div>
           </div>
+
         <div className='d-flex mt-5 mb-5'
           style={{justifyContent: 'center'}}
         >

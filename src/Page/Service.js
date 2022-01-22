@@ -6,7 +6,11 @@ import CheckoutSteps from './ CheckoutSteps'
 import { Link } from 'react-router-dom'
 import MetaData from '../MetaData'
 import ServiceDeta from '../Components/ServiceDeta'
- 
+import Radio from '@mui/material/Radio';
+import RadioGroup from '@mui/material/RadioGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import FormControl from '@mui/material/FormControl';
+  
 function  Service() {
     return (
         <div className='mainsection '>
@@ -54,6 +58,9 @@ function  Service() {
         >
           <ServiceDeta></ServiceDeta>
         </div>
+        <FormControl>
+    </FormControl>
+
         
         <div className='d-flex mt-5 mb-5'
           style={{justifyContent: 'space-around'}}

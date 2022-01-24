@@ -1,15 +1,46 @@
 import React, { useState } from 'react'
 import { ImageListItem, ListItem, Typography } from '@mui/material';
+import useCart from './Hooks/useCart';
+import { addToDb, removeFromDb,clearTheCart } from './fakedb';
  
 
 function  CartDeta({displyProduct}) {
     const [click, setClick] = useState()
+    const [cart, setCart] = useCart();
+
     String.prototype.trimEllip = function (length) {
         return this.length > length ? this.substring(0, length) + ".." : this;
       }
-      const hendelOnClick = () =>{
+      
 
-      }
+      
+      // product button
+      const hendelOnClick = (product) =>{
+        const exists = cart.find((pd) => pd.key === product.key);
+        if(!exists){
+            const exists = cart.find((pd) => pd.key === product.key);
+            let newCart = [];
+            // if (exists) {
+            //   const rest = cart.filter((pd) => pd.key !== product.key);
+            //   exists.quantity = exists.quantity + 1;
+            //   newCart = [...rest, product];
+            // } else {
+              product.quantity = 1;
+              newCart = [...cart, product];
+            // }
+            setCart(newCart);
+            addToDb(product.key);
+            console.log('count 1',   cart)
+          }
+          else if(exists){
+             const newCart = cart.filter(pd => pd.key !== product.key);
+             setCart(newCart)
+             removeFromDb(product.key)
+            //  clearTheCart(cart)
+             console.log('count 0', cart)
+            }
+
+    }
     return (
          <div className='mt-4'>
              <div className='d-flex col-md-12 col-sm-12'>
@@ -31,7 +62,8 @@ function  CartDeta({displyProduct}) {
                   {
                       displyProduct.map((pd)=>(
                         <ListItem
-                        onClick={hendelOnClick}
+                         key={pd.key}
+                         onClick={()=>hendelOnClick(pd)}
                          button>
                          <ImageListItem>
                           <img

@@ -25,7 +25,7 @@ const useCart = () => {
 
         })
 
-    }, []);
+    }, [cart]);
 
     return [cart, setCart];
 

@@ -17,33 +17,15 @@ function  Cart() {
    const [value, setValue] = useState('');
   const [displyProduct,setDisplyProduct] = useState([])
   const [cart, setCart] = useCart();
-
-  console.log(displyProduct)
-
+   
   useEffect(() => {
-    fetch("./products.JSON")
+     fetch("./products.JSON")
       .then((res) => res.json())
       .then((data) => {
         setProducts(data);
         // input search tex hendl UI. No.7 and END
         setDisplyProduct(data);
-      });
-
-
-      const handleAddToCart = (product) => {
-        const exists = cart.find((pd) => pd.key === product.key);
-        let newCart = [];
-        if (exists) {
-          const rest = cart.filter((pd) => pd.key !== product.key);
-          exists.quantity = exists.quantity + 1;
-          newCart = [...rest, product];
-        } else {
-          product.quantity = 1;
-          newCart = [...cart, product];
-        }
-        setCart(newCart);
-        addToDb(product.key);
-      };
+      },[]);
 
 
       let totalQuantity = 0;
@@ -125,9 +107,10 @@ function  Cart() {
              </div>
                { value ?
                
-                 <CartDeta key={displyProduct.key}
+                 <CartDeta 
+                 key={displyProduct.key}
                  displyProduct={displyProduct}
-                //  handleAddToCart={handleAddToCart}
+                //  handleAddToCart={handleAddCart}
                  ></CartDeta>
              
                :
